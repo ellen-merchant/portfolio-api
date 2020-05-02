@@ -1,0 +1,26 @@
+language: php
+os: linux
+dist: bionic
+php:
+  - 7.4
+services:
+  - postgresql
+before_install:
+  - composer self-update
+  - npm i npm@latest -g
+install:
+  - cp .env.travis .env
+  - travis_retry composer install --no-interaction --prefer-dist --no-suggest
+  - php artisan key:generate
+  - git clone https://github.com/ellllllen/portfolio-migrations.git
+  - cd portfolio-migrations && git checkout master && cp .env.travis .env && npm install --production && npm run migrate-travis && cd ../ && rm -rf portfolio-migrations
+  - npm install --production
+  - npm run production
+script:
+  - php -qrr vendor/bin/phpunit --coverage-clover=coverage.xml
+cache:
+  directories:
+    - node_modules
+    - vendor
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
