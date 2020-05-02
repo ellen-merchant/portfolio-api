@@ -11,7 +11,6 @@ before_install:
 install:
   - cp .env.travis .env
   - travis_retry composer install --no-interaction --prefer-dist --no-suggest
-  - php artisan key:generate
   - git clone https://github.com/ellllllen/portfolio-migrations.git
   - cd portfolio-migrations && git checkout master && cp .env.travis .env && npm install --production && npm run migrate-travis && cd ../ && rm -rf portfolio-migrations
   - npm install --production
