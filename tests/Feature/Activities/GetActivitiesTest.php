@@ -3,10 +3,13 @@
 namespace Feature\Activities;
 
 use App\Portfolio\Activities\Activity;
+use Laravel\Lumen\Testing\DatabaseTransactions;
 use TestCase;
 
 class GetActivitiesTest extends TestCase
 {
+    use DatabaseTransactions;
+
     public function testGetAllActivities()
     {
         $response = $this->call('GET', '/activities');
