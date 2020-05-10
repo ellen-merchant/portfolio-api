@@ -2,7 +2,7 @@
 
 namespace App\Http\Transformers;
 
-use Ellllllen\Portfolio\Activities\Activity;
+use App\Portfolio\Activities\Activity;
 
 class ActivityTransformer extends Transformer
 {

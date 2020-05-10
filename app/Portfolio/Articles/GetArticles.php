@@ -1,6 +1,6 @@
 <?php
 
-namespace Ellllllen\Portfolio\Articles;
+namespace App\Portfolio\Articles;
 
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Filesystem\FilesystemManager;

@@ -25,4 +25,20 @@ abstract class Transformer
 
         return $transformedData;
     }
+
+    public function transformPagination($data): array
+    {
+        $transformedData = [];
+        foreach ($data as $datum) {
+            $transformedData[] = $this->transform($datum);
+        }
+
+        return [
+            'data' => $transformedData,
+            'total' => $data->total(),
+            'per_page' => $data->perPage(),
+            'current_page' => $data->currentPage(),
+            'last_page' => $data->lastPage(),
+        ];
+    }
 }

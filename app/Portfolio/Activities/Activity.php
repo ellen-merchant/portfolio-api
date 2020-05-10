@@ -9,17 +9,12 @@ class Activity extends Model
 {
     public $timestamps = false;
 
-    /**
-     * @return Carbon
-     */
-    public function getStartDate()
+    public function getStartDate(): string
     {
-        return Carbon::createFromTimestamp(strtotime($this->start_date));
+        return Carbon::createFromTimestamp(strtotime($this->start_date))
+            ->format('d-m-Y');
     }
 
-    /**
-     * @return string
-     */
     public function getTitleLink(): string
     {
         return $this->title_link ?? "";

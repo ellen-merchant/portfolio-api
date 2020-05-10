@@ -4,13 +4,36 @@ namespace App\Http\Controllers;
 
 use App\Http\Transformers\ActivityTransformer;
 use App\Portfolio\Activities\GetActivities;
+use Illuminate\Http\Request;
 
 class ActivityController extends Controller
 {
-    public function index(GetActivities $getActivities, ActivityTransformer $transformer)
-    {
-        $activities = $getActivities->get();
+    /**
+     * @var GetActivities
+     */
+    private GetActivities $getActivities;
+    /**
+     * @var ActivityTransformer
+     */
+    private ActivityTransformer $transformer;
 
-        return response()->json($transformer->transformMultiple($activities));
+    public function __construct(GetActivities $getActivities, ActivityTransformer $transformer)
+    {
+        $this->getActivities = $getActivities;
+        $this->transformer = $transformer;
+    }
+
+    public function index()
+    {
+        $activities = $this->getActivities->get();
+
+        return response()->json($this->transformer->transformMultiple($activities));
+    }
+
+    public function paginate(Request $request)
+    {
+        $activities = $this->getActivities->paginate($request->get('limit', 10), $request->get('page', 1));
+
+        return response()->json($this->transformer->transformPagination($activities));
     }
 }
