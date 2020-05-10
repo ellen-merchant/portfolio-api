@@ -13,3 +13,5 @@
 
 $router->get('/activities', 'ActivityController@index');
 $router->get('/activities/paginate', 'ActivityController@paginate');
+
+$router->get('/skills', 'SkillController@index');

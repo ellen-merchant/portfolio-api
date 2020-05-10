@@ -8,13 +8,7 @@ use Illuminate\Http\Request;
 
 class ActivityController extends Controller
 {
-    /**
-     * @var GetActivities
-     */
     private GetActivities $getActivities;
-    /**
-     * @var ActivityTransformer
-     */
     private ActivityTransformer $transformer;
 
     public function __construct(GetActivities $getActivities, ActivityTransformer $transformer)
