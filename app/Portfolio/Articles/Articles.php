@@ -8,11 +8,11 @@ use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 class Articles
 {
     /**
+     * @param $limit
      * @param null $tag
-     * @param int $perPage
      * @return LengthAwarePaginator|null
      */
-    public function paginate($tag = null, int $perPage = 10)
+    public function paginate($limit, $tag)
     {
         $query = Article::orderBy('created_at', 'desc');
 
@@ -22,7 +22,7 @@ class Articles
             });
         }
 
-        return $query->paginate($perPage);
+        return $query->paginate($limit);
     }
 
     /**

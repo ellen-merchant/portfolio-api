@@ -20,7 +20,7 @@ class Activities
         return $query->get();
     }
 
-    public function paginate($perPage, $page)
+    public function paginate($perPage)
     {
         return Activity::orderBy('start_date', 'desc')
             ->paginate($perPage);

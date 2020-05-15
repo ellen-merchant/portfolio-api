@@ -2,7 +2,7 @@
 
 namespace App\Portfolio\Articles;
 
-use App\Presenter\Presenter;
+use App\Presenters\Presenter;
 
 class ArticlePresenter extends Presenter
 {

@@ -2,15 +2,15 @@
 
 namespace App\Portfolio\Articles;
 
-use Ellllllen\Presenter\PresenterTrait;
+use App\Portfolio\Articles\Tags\Tag;
+use App\Presenters\PresenterInterface;
+use App\Presenters\PresenterTrait;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
-use Ellllllen\Portfolio\Articles\Tags\Tag;
-use Ellllllen\Presenter\PresenterInterface;
 
 class Article extends Model implements PresenterInterface
 {
     use PresenterTrait;
-    use SeparateControllerTrait;
 
     protected $presenter = ArticlePresenter::class;
 
@@ -19,5 +19,17 @@ class Article extends Model implements PresenterInterface
     public function tags()
     {
         return $this->belongsToMany(Tag::class, 'article_tags');
+    }
+
+    public function getCreatedAtDate()
+    {
+        return Carbon::createFromTimestamp(strtotime($this->created_at))
+            ->format('d-m-Y');
+    }
+
+    public function getUpdatedAtDate()
+    {
+        return Carbon::createFromTimestamp(strtotime($this->updated_at))
+            ->format('d-m-Y');
     }
 }

@@ -26,7 +26,7 @@ class ActivityController extends Controller
 
     public function paginate(Request $request)
     {
-        $activities = $this->getActivities->paginate($request->get('limit', 10), $request->get('page', 1));
+        $activities = $this->getActivities->paginate($request->get('limit', 10));
 
         return response()->json($this->transformer->transformPagination($activities));
     }

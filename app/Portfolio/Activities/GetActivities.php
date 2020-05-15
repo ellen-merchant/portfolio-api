@@ -18,8 +18,8 @@ class GetActivities
         return $this->activities->get($limit);
     }
 
-    public function paginate($perPage = 10, $page = 1)
+    public function paginate($perPage = 10)
     {
-        return $this->activities->paginate($perPage, $page);
+        return $this->activities->paginate($perPage);
     }
 }
