@@ -2,9 +2,9 @@
 
 namespace App\Portfolio\Articles\Books;
 
-use Illuminate\Database\Eloquent\Model;
+use App\Portfolio\PortfolioModel;
 
-class Book extends Model
+class Book extends PortfolioModel
 {
     public function bookImages()
     {

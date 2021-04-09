@@ -2,9 +2,10 @@
 
 namespace App\Portfolio\Articles\Tags;
 
+use App\Portfolio\PortfolioModel;
 use Illuminate\Database\Eloquent\Model;
 
-class Tag extends Model
+class Tag extends PortfolioModel
 {
     const ABOUT_ME = 1;
     const NOTES = 2;

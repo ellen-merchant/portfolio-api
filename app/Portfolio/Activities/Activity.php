@@ -2,10 +2,10 @@
 
 namespace App\Portfolio\Activities;
 
+use App\Portfolio\PortfolioModel;
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Model;
 
-class Activity extends Model
+class Activity extends PortfolioModel
 {
     public $timestamps = false;
 

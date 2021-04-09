@@ -12,8 +12,8 @@ class GetSkillsTest extends TestCase
 
     public function testGetAllSkills()
     {
-        $skillOne = factory(Skill::class)->create();
-        $skillTwo = factory(Skill::class)->create();
+        $skillOne = Skill::factory()->create();
+        $skillTwo = Skill::factory()->create();
 
         $response = $this->call('GET', '/skills');
 

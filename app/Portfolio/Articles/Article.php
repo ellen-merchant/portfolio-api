@@ -3,12 +3,12 @@
 namespace App\Portfolio\Articles;
 
 use App\Portfolio\Articles\Tags\Tag;
+use App\Portfolio\PortfolioModel;
 use App\Presenters\PresenterInterface;
 use App\Presenters\PresenterTrait;
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Model;
 
-class Article extends Model implements PresenterInterface
+class Article extends PortfolioModel implements PresenterInterface
 {
     use PresenterTrait;
 

@@ -2,10 +2,10 @@
 
 namespace App\Portfolio\Skills;
 
+use App\Portfolio\PortfolioModel;
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Model;
 
-class Skill extends Model
+class Skill extends PortfolioModel
 {
     public $timestamps = false;
 

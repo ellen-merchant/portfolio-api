@@ -12,8 +12,8 @@ class GetActivitiesTest extends TestCase
 
     public function testGetAllActivities()
     {
-        $activityOne = factory(Activity::class)->create();
-        $activityTwo = factory(Activity::class)->create();
+        $activityOne = Activity::factory()->create();
+        $activityTwo = Activity::factory()->create();
 
         $response = $this->call('GET', '/activities');
 
@@ -43,8 +43,8 @@ class GetActivitiesTest extends TestCase
 
     public function testGetPaginatedActivities()
     {
-        $activityOne = factory(Activity::class)->create();
-        $activityTwo = factory(Activity::class)->create();
+        $activityOne = Activity::factory()->create();
+        $activityTwo = Activity::factory()->create();
 
         $response = $this->call('GET', '/activities/paginate?page=1&limit=1');
 

@@ -12,8 +12,8 @@ class GetArticlesTest extends TestCase
 
     public function testGetAllArticles()
     {
-        $articleOne = factory(Article::class)->create();
-        $articleTwo = factory(Article::class)->create();
+        $articleOne = Article::factory()->create();
+        $articleTwo = Article::factory()->create();
 
         $response = $this->call('GET', '/articles');
         $this->assertEquals(200, $response->status());
@@ -38,8 +38,8 @@ class GetArticlesTest extends TestCase
 
     public function testGetPaginatedArticles()
     {
-        $articleOne = factory(Article::class)->create();
-        $articleTwo = factory(Article::class)->create();
+        $articleOne = Article::factory()->create();
+        $articleTwo = Article::factory()->create();
 
         $response = $this->call('GET', '/articles/paginate?page=1&limit=1');
 
